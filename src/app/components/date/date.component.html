@@ -1,5 +1,17 @@
 <h1>Date</h1>
-<hr>
-<div class="container-date">
-  
+<div class="form-container">
+  <form>
+    <div class="row">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Enter FirstName">
+      </div>
+      <div class="col">
+        <input type="text" placeholder="Datepicker" class="form-control" [bsConfig]="bsConfig" bsDatepicker>
+      </div>
+    </div>
+    <div class="mt-2 clearfix">
+      <button type="button" class="btn btn-success float-right"> Save </button>
+    </div>
+  </form>
+  <hr>
 </div>
