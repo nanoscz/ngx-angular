@@ -42,6 +42,7 @@ export class DateComponent implements OnInit {
   async onSubmit() {
     if (this.form.invalid) {
       console.log("form invalid")
+      return
     }
     await this.testsService.create(this.form.value).catch(this.handleError)
   }
