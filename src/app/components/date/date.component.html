@@ -63,9 +63,9 @@
       <tr *ngFor="let test of tests">
         <th scope="row"> {{ test.id }}</th>
         <td>{{ test.firstName }}</td>
-        <td>{{ test.date }}</td>
-        <td>{{ test.createdAt }}</td>
-        <td>{{ test.updatedAt }}</td>
+        <td>{{ test.date | date }}</td>
+        <td>{{ test.createdAt | date }}</td>
+        <td>{{ test.updatedAt | date }}</td>
       </tr>
     </tbody>
   </table>
