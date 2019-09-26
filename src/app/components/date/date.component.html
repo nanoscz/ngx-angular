@@ -6,7 +6,8 @@
 
       <div class="col-md-6 mb-6">
         <label for="firstname">First name</label>
-        <input type="text" formControlName="firstname" class="form-control" [ngClass]="{'is-invalid': form.controls.firstname.touched && form.controls.firstname?.errors, 'is-valid': form.controls.firstname.touched && !form.controls.firstname?.errors}"
+        <input type="text" formControlName="firstname" class="form-control"
+          [ngClass]="{'is-invalid': form.controls.firstname.touched && form.controls.firstname?.errors, 'is-valid': form.controls.firstname.touched && !form.controls.firstname?.errors}"
           placeholder="Enter FirstName">
         <div class="valid-feedback">
           Success
@@ -17,19 +18,21 @@
       </div>
       <div class="col-md-6 mb-6">
         <label for="date">Date</label>
-        <input type="text" formControlName="date" class="form-control" [bsConfig]="bsConfig" [ngClass]="{'is-invalid': form.controls.date.touched && form.controls.date?.errors, 'is-valid': form.controls.date.touched && !form.controls.date?.errors}"
+        <input type="text" formControlName="date" class="form-control" [bsConfig]="bsConfig"
+          [ngClass]="{'is-invalid': form.controls.date.touched && form.controls.date?.errors, 'is-valid': form.controls.date.touched && !form.controls.date?.errors}"
           placeholder="Datepicker" bsDatepicker>
-          <div class="valid-feedback">
-            Success
-          </div>
-          <div class="invalid-feedback">
-            Required field
-          </div>
+        <div class="valid-feedback">
+          Success
+        </div>
+        <div class="invalid-feedback">
+          Required field
+        </div>
       </div>
 
     </div>
     <div class="mt-2 clearfix">
-      <button type="submit" class="btn btn-success float-right" [disabled]="form.controls.firstname.errors && form.controls.firstname.errors">
+      <button type="submit" class="btn btn-success float-right"
+        [disabled]="form.controls.firstname.errors && form.controls.firstname.errors">
         Save
       </button>
     </div>
@@ -47,4 +50,23 @@
   <pre>
     {{ form.value | json }}
   </pre>
+</div>
+
+<div class="container-table">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col" *ngFor="let item of testsColumn">{{ item }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let test of tests">
+        <th scope="row"> {{ test.id }}</th>
+        <td>{{ test.firstName }}</td>
+        <td>{{ test.date }}</td>
+        <td>{{ test.createdAt }}</td>
+        <td>{{ test.updatedAt }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
