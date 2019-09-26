@@ -21,7 +21,7 @@ export class DateComponent implements OnInit {
     containerClass: 'theme-dark-blue',
   }
   public form: FormGroup;
-  public tests: any;
+  public tests: any = [];
   public testsColumn: any;
   constructor(
     private localeService: BsLocaleService,
@@ -34,7 +34,7 @@ export class DateComponent implements OnInit {
   
   ngOnInit() {    
     this.form = this.fb.group({
-      firstname: ['', Validators.required],
+      firstName: ['', Validators.required],
       date: ['', Validators.required]
     })
     this.init()
@@ -42,7 +42,7 @@ export class DateComponent implements OnInit {
 
   async init() {
     this.tests = await this.testsService.findAll().catch(this.handleError)
-    this.testsColumn = Object.keys(this.tests[0])
+    this.testsColumn = ['id', 'FirstName', 'date', 'createdAt', 'updatedAt']
   }
 
   async onSubmit() {
@@ -50,7 +50,9 @@ export class DateComponent implements OnInit {
       console.log("form invalid")
       return
     }
-    await this.testsService.create(this.form.value).catch(this.handleError)
+    const test = await this.testsService.create(this.form.value).catch(this.handleError)
+    console.log(test)
+    this.tests.push(test[0])
     this.form.reset()
   }
 

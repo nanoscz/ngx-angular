@@ -5,10 +5,10 @@
     <div class="form-row">
 
       <div class="col-md-6 mb-6">
-        <label for="firstname">First name</label>
-        <input type="text" formControlName="firstname" class="form-control"
-          [ngClass]="{'is-invalid': form.controls.firstname.touched && form.controls.firstname?.errors, 'is-valid': form.controls.firstname.touched && !form.controls.firstname?.errors}"
-          placeholder="Enter FirstName">
+        <label for="firstName">First name</label>
+        <input type="text" formControlName="firstName" class="form-control"
+          [ngClass]="{'is-invalid': form.controls.firstName.touched && form.controls.firstName?.errors, 'is-valid': form.controls.firstName.touched && !form.controls.firstName?.errors}"
+          placeholder="Enter firstName">
         <div class="valid-feedback">
           Success
         </div>
@@ -32,15 +32,15 @@
     </div>
     <div class="mt-2 clearfix">
       <button type="submit" class="btn btn-success float-right"
-        [disabled]="form.controls.firstname.errors && form.controls.firstname.errors">
+        [disabled]="form.controls.firstName.errors && form.controls.firstName.errors">
         Save
       </button>
     </div>
   </form>
   <hr>
-  <h3>firstname</h3>
+  <h3>firstName</h3>
   <pre>
-    errors: {{ form.controls.firstname?.errors | json }}
+    errors: {{ form.controls.firstName?.errors | json }}
   </pre>
   <h3>date</h3>
   <pre>
