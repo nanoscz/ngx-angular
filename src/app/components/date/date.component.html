@@ -29,7 +29,9 @@
 
     </div>
     <div class="mt-2 clearfix">
-      <button type="submit" class="btn btn-success float-right"> Save </button>
+      <button type="submit" class="btn btn-success float-right" [disabled]="form.controls.firstname.errors && form.controls.firstname.errors">
+        Save
+      </button>
     </div>
   </form>
   <hr>
