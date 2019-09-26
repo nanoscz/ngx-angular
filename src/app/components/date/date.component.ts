@@ -6,6 +6,8 @@ import { defineLocale } from 'ngx-bootstrap/chronos';
 
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 
+import { TestsService } from 'src/app/services/tests.service';
+
 @Component({
   selector: 'app-date',
   templateUrl: './date.component.html',
@@ -23,6 +25,7 @@ export class DateComponent implements OnInit {
   constructor(
     private localeService: BsLocaleService,
     private fb: FormBuilder,
+    private testsService: TestsService
   ) {
     defineLocale('es', esLocale);
     this.localeService.use('es')
@@ -37,10 +40,10 @@ export class DateComponent implements OnInit {
   }
 
   async onSubmit() {
-    console.log("Form",this.form.value)
     if (this.form.invalid) {
       console.log("form invalid")
     }
+    await this.testsService.create(this.form.value).catch(this.handleError)
   }
 
   handleError(err: any): Promise<any> {
