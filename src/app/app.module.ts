@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
 import { HttpClientModule } from '@angular/common/http';
 
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
 
 /** Third party modules */
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
@@ -19,6 +21,7 @@ import { DateComponent } from './components/date/date.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     BsDatepickerModule.forRoot()
   ],

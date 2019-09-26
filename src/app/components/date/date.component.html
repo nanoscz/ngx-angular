@@ -1,17 +1,48 @@
 <h1>Date</h1>
+<h2>Form: {{ form.valid }}</h2>
 <div class="form-container">
-  <form>
-    <div class="row">
-      <div class="col">
-        <input type="text" class="form-control" placeholder="Enter FirstName">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+    <div class="form-row">
+
+      <div class="col-md-6 mb-6">
+        <label for="firstname">First name</label>
+        <input type="text" formControlName="firstname" class="form-control" [ngClass]="{'is-invalid': form.controls.firstname.touched && form.controls.firstname?.errors, 'is-valid': form.controls.firstname.touched && !form.controls.firstname?.errors}"
+          placeholder="Enter FirstName">
+        <div class="valid-feedback">
+          Success
+        </div>
+        <div class="invalid-feedback">
+          Required field
+        </div>
       </div>
-      <div class="col">
-        <input type="text" placeholder="Datepicker" class="form-control" [bsConfig]="bsConfig" bsDatepicker>
+      <div class="col-md-6 mb-6">
+        <label for="date">Date</label>
+        <input type="text" formControlName="date" class="form-control" [bsConfig]="bsConfig" [ngClass]="{'is-invalid': form.controls.date.touched && form.controls.date?.errors, 'is-valid': form.controls.date.touched && !form.controls.date?.errors}"
+          placeholder="Datepicker" bsDatepicker>
+          <div class="valid-feedback">
+            Success
+          </div>
+          <div class="invalid-feedback">
+            Required field
+          </div>
       </div>
+
     </div>
     <div class="mt-2 clearfix">
-      <button type="button" class="btn btn-success float-right"> Save </button>
+      <button type="submit" class="btn btn-success float-right"> Save </button>
     </div>
   </form>
   <hr>
+  <h3>firstname</h3>
+  <pre>
+    errors: {{ form.controls.firstname?.errors | json }}
+  </pre>
+  <h3>date</h3>
+  <pre>
+    errors: {{ form.controls.date?.errors | json }}
+  </pre>
+  <h3>Form Value</h3>
+  <pre>
+    {{ form.value | json }}
+  </pre>
 </div>

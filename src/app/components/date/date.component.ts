@@ -4,6 +4,8 @@ import { BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker/';
 import { esLocale } from 'ngx-bootstrap/locale';
 import { defineLocale } from 'ngx-bootstrap/chronos';
 
+import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
+
 @Component({
   selector: 'app-date',
   templateUrl: './date.component.html',
@@ -16,21 +18,29 @@ export class DateComponent implements OnInit {
     adaptivePosition: true,
     containerClass: 'theme-dark-blue',
   }
-
-  public date;
+  public form: FormGroup;
 
   constructor(
     private localeService: BsLocaleService,
+    private fb: FormBuilder,
   ) {
     defineLocale('es', esLocale);
     this.localeService.use('es')
-    this.date = new Date()
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.form = this.fb.group({
+      firstname: ['', Validators.required],
+      date: ['', Validators.required]
+    })
+    console.log("Form",this.form)
+  }
 
-  create(test: any) {
-
+  async onSubmit() {
+    console.log("Form",this.form.value)
+    if (this.form.invalid) {
+      console.log("form invalid")
+    }
   }
 
   handleError(err: any): Promise<any> {
