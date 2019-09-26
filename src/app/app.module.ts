@@ -3,7 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 /** Third party modules */
-import { NgxBootstrapModule } from './ngx-bootstrap.module';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { AppComponent } from './app.component';
 import { DateComponent } from './components/date/date.component';
@@ -17,7 +17,7 @@ import { DateComponent } from './components/date/date.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    NgxBootstrapModule
+    BsDatepickerModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
